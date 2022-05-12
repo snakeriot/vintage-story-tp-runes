@@ -1,0 +1,65 @@
+{
+  "code": "rune_beacon",
+  "maxstacksize": 8,
+  "class": "Block",
+  "entityClass": "BEBeacon",
+  "entityBehaviors": [{ "name": "Animatable" }],
+  "creativeinventory": {
+    "general": ["*"],
+    "tprunesmod": ["*"]
+  },
+  "attributes": {
+    "handbook": {
+      "groupBy": ["rune_beacon-*"],
+			"extraSections": [
+					{ 
+            "title": "handbooktitle_tp_runes_element", 
+            "text": "handbooktext_tp_runes_element"
+           }
+				]
+    }
+  },
+  "blockmaterial": "Stone",
+  "drawtype": "json",
+  "variantgroups": [
+    {
+      "code": "stone",
+      "states": ["granite", "andesite", "basalt"]
+    },
+    {
+      "code": "metal",
+      "states": [
+        "copper",
+        "tinbronze",
+        "bismuthbronze",
+        "blackbronze",
+        "silver",
+        "gold",
+        "iron",
+        "steel"
+      ]
+    }
+  ],
+  "textures": {
+    "granite1": {
+      "base": "game:block/stone/rock/{stone}*"
+    },
+    "copper": {
+      "base": "game:item/resource/plate/{metal}"
+    }
+  },
+  "shape": {
+    "base": "beacon"
+  },
+  "sidesolid": {
+    "all": "false"
+  },
+  "sideopaque": {
+    "all": "false"
+  },
+  "resistance": 3.5,
+  "sounds": {
+    "place": "game:walk/stone",
+    "walk": "game:walk/stone"
+  }
+}

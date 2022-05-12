@@ -1,0 +1,109 @@
+[{
+	"width": 3,
+	"height": 3,
+	"ingredientPattern": "CBG,HB_,_P_",
+	"ingredients": {
+		"C": { 
+			"type": "item", 
+			"code": "game:chisel-*",
+			"isTool": true
+		},
+		"H": { 
+			"type": "item", 
+			"code": "game:hammer-*",
+			"isTool": true
+		},
+		"B": { 
+			"type": "block", 
+			"code": "game:rock-*", 
+			"allowedVariants": ["andesite"],
+			"name": "stone"
+		},
+		"P": { 
+			"type": "item", 
+			"code": "game:metalplate-*",
+			"allowedVariants": ["copper", "tinbronze", "bismuthbronze", "blackbronze", "silver", "gold", "iron", "steel"],
+			"name": "metal"
+		},
+		"G": { 
+			"type": "item", 
+			"code": "game:gear-temporal"
+		}
+	},
+	"name": "rune_beacon",
+	"output": { 
+		"type": "block", 
+		"code": "rune_beacon-{stone}-{metal}"
+	}
+},
+{
+	"width": 3,
+	"height": 3,
+	"ingredientPattern": "CBG,HB_,_P_",
+	"ingredients": {
+		"C": { 
+			"type": "item", 
+			"code": "game:chisel-*"
+		},
+		"H": { 
+			"type": "item", 
+			"code": "game:hammer-*"
+		},
+		"B": { 
+			"type": "block", 
+			"code": "game:rock-*", 
+			"allowedVariants": ["granite"],
+			"name": "stone"
+		},
+		"P": { 
+			"type": "item", 
+			"code": "game:metalplate-*",
+			"allowedVariants": ["copper", "tinbronze", "bismuthbronze", "blackbronze", "silver", "gold", "iron", "steel"],
+			"name": "metal"
+		},
+		"G": { 
+			"type": "item", 
+			"code": "game:gear-temporal"
+		}
+	},
+	"name": "rune_beacon",
+	"output": { 
+		"type": "block", 
+		"code": "rune_beacon-{stone}-{metal}"
+	}
+},{
+	"width": 3,
+	"height": 3,
+	"ingredientPattern": "CBG,HB_,_P_",
+	"ingredients": {
+		"C": { 
+			"type": "item", 
+			"code": "game:chisel-*"
+		},
+		"H": { 
+			"type": "item", 
+			"code": "game:hammer-*"
+		},
+		"B": { 
+			"type": "block", 
+			"code": "game:rock-*", 
+			"allowedVariants": ["basalt"],
+			"name": "stone"
+		},
+		"P": { 
+			"type": "item", 
+			"code": "game:metalplate-*",
+			"allowedVariants": ["copper", "tinbronze", "bismuthbronze", "blackbronze", "silver", "gold", "iron", "steel"],
+			"name": "metal"
+		},
+		"G": { 
+			"type": "item", 
+			"code": "game:gear-temporal"
+		}
+	},
+	"name": "rune_beacon",
+	"output": { 
+		"type": "block", 
+		"code": "rune_beacon-{stone}-{metal}"
+	}
+}]
