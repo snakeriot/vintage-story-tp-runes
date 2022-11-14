@@ -5,7 +5,7 @@ using Vintagestory.API.Server;
 [assembly: ModInfo("TeleportationRunes",
     Description = "Mod that simplifies traveling in the world using gothic-like teleportation stones.",
     Website = "https://github.com/LMD-inc/teleportation-runes",
-    Version = "1.0.1",
+    Version = "1.0.6",
     Authors = new[] { "LMD-inc", "dKosher" })]
 namespace TeleporatationRunes
 {

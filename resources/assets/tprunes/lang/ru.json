@@ -15,13 +15,13 @@
     "item-raw_rune_stone-tinbronze": "Рунный камень - оловянная бронза (сырой)",
     "item-raw_rune_stone-bismuthbronze": "Рунный камень - висмутовая бронза (сырой)",
     "item-raw_rune_stone-blackbronze": "Рунный камень - черная бронза (сырой)",
-    "item-raw_rune_stone-iron": "Руннный камень - железо (сырой)",
+    "item-raw_rune_stone-iron": "Рунный камень - железо (сырой)",
     "item-raw_rune_stone-steel": "Рунный камень - сталь (сырой)",
     "item-rune_stone-copper": "Рунный камень - медь",
     "item-rune_stone-tinbronze": "Рунный камень - оловянная бронза",
     "item-rune_stone-bismuthbronze": "Рунный камень - висмутовая бронза",
     "item-rune_stone-blackbronze": "Рунный камень - черная бронза",
-    "item-rune_stone-iron": "Руннный камень - железо",
+    "item-rune_stone-iron": "Рунный камень - железо",
     "item-rune_stone-steel": "Рунный камень - сталь",
     "beacon_location_name": "Введите имя точки телепорта.",
     "rune_bound_to": "Телепортирует к:",
@@ -32,6 +32,6 @@
     "game:tabname-tprunesmod": "ТП Руны",
     "game:handbooktitle_tp_runes_element": "Использование:",
     "game:handbooktext_tp_runes_element": "Часть <a href=\"handbook://runic_teleportation\">Рунической Сети Телепортации.</a>",
-    "runic_teleportation-title": "Рунческая сеть телепортации",
-    "runic_teleportation-text": "<font size=\"16\" weight=\"bold\" lineheight=\"1.2\">Истроия</font><br>Однажды, группа путешественников с Севера обнаружила, что измельченные <a href=\"handbook://item-gear-temporal\">Темпоральные Шестерни</a>, в сочетании с руническими символами, могут давать магические свойства различным объектам. После серии экспериментов, они обнаружили способ быстро путешествовать между различными частями этого мира, используя <a href=\"handbook://block-tprunes:rune_beacon-andesite-copper\">Маяки</a> и <a href=\"handbook://item-tprunes:rune_stone-copper\">Рунные Камни</a>.<br><br><br><font size=\"16\" weight=\"bold\" lineheight=\"1.2\">Использование</font><br>Сначала, необходимо создать <a href=\"handbook://block-tprunes:rune_beacon-andesite-copper\">Маяк</a> - конструкцию которая позволяет создать магический якорь где угодно в этом мире. После этого, должным образом собранный <a href=\"handbook://item-tprunes:rune_stone-copper\">Рунный камень</a> может быть использован, чтобы телепортироваться к любому <a href=\"handbook://block-tprunes:rune_beacon-andesite-copper\">Маяку</a>. Чтобы сделать это, нужно создать связь между <a href=\"handbook://block-tprunes:rune_beacon-andesite-copper\">Маяком</a> и <a href=\"handbook://item-tprunes:rune_stone-copper\">Рунным Камнем</a>.<br><br><br><font size=\"16\" weight=\"bold\" lineheight=\"1.2\">Советы</font><br>Эксперименты показали, что метал, который был использован для создания <a href=\"handbook://item-tprunes:rune_stone_nest-iron\">Базы рунного камня</a> влияет на то как <a href=\"handbook://item-tprunes:rune_stone-copper\">Рунный камень</a> работает."
+    "runic_teleportation-title": "Руническая сеть телепортации",
+    "runic_teleportation-text": "<font size=\"16\" weight=\"bold\" lineheight=\"1.2\">История</font><br>Однажды, группа путешественников с Севера обнаружила, что измельченные <a href=\"handbook://item-gear-temporal\">Темпоральные Шестерни</a>, в сочетании с руническими символами, могут давать магические свойства различным объектам. После серии экспериментов, они обнаружили способ быстро путешествовать между различными частями этого мира, используя <a href=\"handbook://block-tprunes:rune_beacon-andesite-copper\">Маяки</a> и <a href=\"handbook://item-tprunes:rune_stone-copper\">Рунные Камни</a>.<br><br><br><font size=\"16\" weight=\"bold\" lineheight=\"1.2\">Использование</font><br>Сначала, необходимо создать <a href=\"handbook://block-tprunes:rune_beacon-andesite-copper\">Маяк</a> - конструкцию которая позволяет создать магический якорь где угодно в этом мире. После этого, должным образом собранный <a href=\"handbook://item-tprunes:rune_stone-copper\">Рунный камень</a> может быть использован, чтобы телепортироваться к любому <a href=\"handbook://block-tprunes:rune_beacon-andesite-copper\">Маяку</a>. Чтобы сделать это, нужно создать связь между <a href=\"handbook://block-tprunes:rune_beacon-andesite-copper\">Маяком</a> и <a href=\"handbook://item-tprunes:rune_stone-copper\">Рунным Камнем</a>.<br><br><br><font size=\"16\" weight=\"bold\" lineheight=\"1.2\">Советы</font><br>Эксперименты показали, что метал, который был использован для создания <a href=\"handbook://item-tprunes:rune_stone_nest-iron\">Базы рунного камня</a> влияет на то как <a href=\"handbook://item-tprunes:rune_stone-copper\">Рунный камень</a> работает."
 }
