@@ -18,6 +18,7 @@ namespace TeleporatationRunes
     private bool _validated = false;
     private bool _runAnimation = false;
     private BlockPos _initialPos;
+    private ILoadedSound _sound;
 
     public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
     {
@@ -31,6 +32,12 @@ namespace TeleporatationRunes
         _validated = false;
         _runAnimation = true;
         _initialPos = byEntity.Pos.AsBlockPos;
+
+        if (byEntity.World is IClientWorldAccessor world)
+        {
+          _sound = world.LoadSound(GetSoundParams(byEntity.Pos.XYZ.ToVec3f()));
+          _sound?.Start();
+        }
       }
 
       handling = EnumHandHandling.PreventDefault;
@@ -78,7 +85,6 @@ namespace TeleporatationRunes
           OnLoaded = () => ValidateBeaconExistance(pos, slot, byEntity)
         });
       }
-      // TODO: Play teleport sound
       if (secondsUsed > GetTpTime() && !_teleported && _validated)
       {
         if (!byEntity.Teleporting && slot.Itemstack.Attributes.HasAttribute("x"))
@@ -98,7 +104,7 @@ namespace TeleporatationRunes
           byEntity.World.SpawnParticles(ParticleFactory.Get(ParticleType.TELEPORTED, byEntity));
         }
       }
-      else if (secondsUsed + 0.4 < GetTpTime())
+      else if (secondsUsed + 0.4 < GetTpTime() && !_teleported && sapi != null)
       {
         byEntity.World.SpawnParticles(ParticleFactory.Get(ParticleType.TELEPORTING, byEntity));
       }
@@ -135,11 +141,15 @@ namespace TeleporatationRunes
             offset / 5 + ((float)rand.NextDouble() * 0.02f)
           );
         }
-
         byEntity.Controls.UsingHeldItemTransformBefore = tf;
       }
-
       return !_teleported;
+    }
+
+    public override void OnHeldInteractStop(float secondsUsed, ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel)
+    {
+      _sound?.Stop();
+      base.OnHeldInteractStop(secondsUsed, slot, byEntity, blockSel, entitySel);
     }
 
     private List<Vec3d> GetRandomVectorsList()
@@ -179,6 +189,7 @@ namespace TeleporatationRunes
         setName(null, slot);
         saveBeaconPosition(null, slot, null);
         _teleported = true;
+        _sound?.Stop();
       }
       _validated = true;
     }
@@ -258,6 +269,19 @@ namespace TeleporatationRunes
     private int GetTpTime()
     {
       return this.Attributes["tptime"].AsInt();
+    }
+
+    private SoundParams GetSoundParams(Vec3f position)
+    {
+      String fileName = this.Attributes["tpsound"].AsString();
+      return new SoundParams()
+      {
+        Location = new AssetLocation("tprunes", "sounds/rune/" + fileName),
+        ShouldLoop = false,
+        Position = position,
+        DisposeOnFinish = true,
+        Volume = 0.8f
+      };
     }
   }
 }

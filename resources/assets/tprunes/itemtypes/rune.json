@@ -36,6 +36,7 @@
     "attributesByType": {
       "*-copper": {
         "tptime": 5,
+        "tpsound": "copper.ogg",
         "handbook": {
           "extraSections": [
               { 
@@ -47,6 +48,7 @@
       },
       "*-tinbronze": {
         "tptime": 4,
+        "tpsound": "bronze.ogg",
         "handbook": {
           "extraSections": [
               { 
@@ -58,6 +60,7 @@
       },
       "*-bismuthbronze": {
         "tptime": 4,
+        "tpsound": "bronze.ogg",
         "handbook": {
           "extraSections": [
               { 
@@ -69,6 +72,7 @@
       },
       "*-blackbronze": {
         "tptime": 4,
+        "tpsound": "bronze.ogg",
         "handbook": {
           "extraSections": [
               { 
@@ -80,6 +84,7 @@
       },
       "*-iron": {
         "tptime": 3,
+        "tpsound": "iron.ogg",
         "handbook": {
           "extraSections": [
               { 
@@ -91,6 +96,7 @@
       },
       "*-steel": {
         "tptime": 2,
+        "tpsound": "steel.ogg",
         "handbook": {
           "extraSections": [
               { 
