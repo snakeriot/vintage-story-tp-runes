@@ -17,11 +17,16 @@ namespace TeleporatationRunes
     private bool _teleported = true;
     private bool _validated = false;
     private bool _runAnimation = false;
+    private bool _failPlayed;
     private BlockPos _initialPos;
     private ILoadedSound _sound;
 
     public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
     {
+      _failPlayed = false;
+      slot.Itemstack.Attributes.RemoveAttribute("validationFailed");
+      slot.MarkDirty();
+
       if (blockSel?.Position != null && byEntity.World.BlockAccessor.GetBlockEntity(blockSel.Position) is BEBeacon bec)
       {
         BindToBeacon(bec, slot, blockSel, byEntity);
@@ -74,8 +79,9 @@ namespace TeleporatationRunes
     {
       Vec3d pos = getTeleportPosition(slot);
       ICoreServerAPI sapi = byEntity.Api as ICoreServerAPI;
+      bool serverSide = sapi != null;
 
-      if (secondsUsed > 1 && sapi != null && !_validated)
+      if (secondsUsed > 1 && serverSide && !_validated)
       {
         int chunkX = (int)pos.X / byEntity.Api.World.BlockAccessor.ChunkSize;
         int chunkZ = (int)pos.Z / byEntity.Api.World.BlockAccessor.ChunkSize;
@@ -96,7 +102,7 @@ namespace TeleporatationRunes
             byEntity.World.SpawnParticles(ParticleFactory.Get(ParticleType.BLOCKED, byEntity));
             return !_teleported;
           }
-          byEntity.TeleportToDouble(pos.X, pos.Y, pos.Z, () => _teleported = true);
+          byEntity.TeleportToDouble(tpPosition.X, tpPosition.Y, tpPosition.Z, () => _teleported = true);
           BlockPos teleportTo = new BlockPos((int)pos.X, (int)pos.Y, (int)pos.Z);
           slot.Itemstack.Collectible.DamageItem(byEntity.World, byEntity, slot, (int)_initialPos.DistanceTo(teleportTo) / 10);
           slot.MarkDirty();
@@ -104,7 +110,7 @@ namespace TeleporatationRunes
           byEntity.World.SpawnParticles(ParticleFactory.Get(ParticleType.TELEPORTED, byEntity));
         }
       }
-      else if (secondsUsed + 0.4 < GetTpTime() && !_teleported && sapi != null)
+      else if (secondsUsed + 0.4 < GetTpTime() && !_teleported && serverSide)
       {
         byEntity.World.SpawnParticles(ParticleFactory.Get(ParticleType.TELEPORTING, byEntity));
       }
@@ -119,7 +125,17 @@ namespace TeleporatationRunes
           _runAnimation = false;
         }
       }
+      if (slot.Itemstack.Attributes.HasAttribute("validationFailed") && !serverSide)
+      {
+        _sound?.Stop();
 
+        if (byEntity.World is IClientWorldAccessor world && !_failPlayed)
+        {
+          ILoadedSound failSound = world.LoadSound(GetFailSoundParams(byEntity.Pos.XYZ.ToVec3f()));
+          failSound?.Start();
+          _failPlayed = true;
+        }
+      }
       if (byEntity.World is IClientWorldAccessor)
       {
         ModelTransform tf = new ModelTransform();
@@ -163,9 +179,10 @@ namespace TeleporatationRunes
       {
         return null;
       }
+      Vec3d newPosition = pos.Clone();
       var random = new Random();
       int index = random.Next(vectors.Count);
-      pos.Add(vectors[index]);
+      newPosition.Add(vectors[index]);
       Block block = byEntity.World.BlockAccessor.GetBlock(new BlockPos((int)pos.X, (int)pos.Y, (int)pos.Z));
       Block blockAbove = byEntity.World.BlockAccessor.GetBlock(new BlockPos((int)pos.X, (int)pos.Y + 1, (int)pos.Z));
 
@@ -174,7 +191,7 @@ namespace TeleporatationRunes
         vectors.RemoveAt(index);
         return GetRandomizedTeleportPosition(pos, byEntity, vectors);
       }
-      return pos;
+      return newPosition;
     }
 
     private void ValidateBeaconExistance(Vec3d pos, ItemSlot slot, EntityAgent byEntity)
@@ -189,7 +206,8 @@ namespace TeleporatationRunes
         setName(null, slot);
         saveBeaconPosition(null, slot, null);
         _teleported = true;
-        _sound?.Stop();
+        slot.Itemstack.Attributes.SetBool("validationFailed", true);
+        slot.MarkDirty();
       }
       _validated = true;
     }
@@ -281,6 +299,18 @@ namespace TeleporatationRunes
         Position = position,
         DisposeOnFinish = true,
         Volume = 0.8f
+      };
+    }
+
+    private SoundParams GetFailSoundParams(Vec3f position)
+    {
+      return new SoundParams()
+      {
+        Location = new AssetLocation("tprunes", "sounds/rune/fail.ogg"),
+        ShouldLoop = false,
+        Position = position,
+        DisposeOnFinish = true,
+        Volume = 1f
       };
     }
   }
