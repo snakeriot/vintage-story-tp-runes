@@ -25,7 +25,7 @@ namespace TeleporatationRunes
 
             if (api.World.Side == EnumAppSide.Client && animUtil != null)
             {
-                animUtil.animUtil.InitializeAnimator("lmd:rune-beacon", new Vec3f(0, Block.Shape.rotateY, 0));
+                animUtil.animUtil.InitializeAnimator("tprunes:rune-beacon", new Vec3f(0, Block.Shape.rotateY, 0));
                 animUtil.animUtil.StartAnimation(new AnimationMetaData() { Animation = "Idle", Code = "idle", Weight = 10 });
             }
         }

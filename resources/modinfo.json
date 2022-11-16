@@ -2,9 +2,9 @@
 	"type": "code",
 	"name": "Teleportation Runes",
 	"modid": "tprunes",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"description" : "Mod that adds beacon-based teleportation system into the game.",
-	"website": "https://github.com/LMD-inc/teleportation-runes",
+	"website": "https://github.com/snakeriot/vintage-story-tp-runes",
 	"authors": [ "dKosher" ],
 	"dependencies": {
 		"game": "1.17.9"
