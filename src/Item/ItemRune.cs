@@ -183,8 +183,8 @@ namespace TeleporatationRunes
       var random = new Random();
       int index = random.Next(vectors.Count);
       newPosition.Add(vectors[index]);
-      Block block = byEntity.World.BlockAccessor.GetBlock(new BlockPos((int)pos.X, (int)pos.Y, (int)pos.Z));
-      Block blockAbove = byEntity.World.BlockAccessor.GetBlock(new BlockPos((int)pos.X, (int)pos.Y + 1, (int)pos.Z));
+      Block block = byEntity.World.BlockAccessor.GetBlock(new BlockPos((int)newPosition.X, (int)newPosition.Y, (int)newPosition.Z));
+      Block blockAbove = byEntity.World.BlockAccessor.GetBlock(new BlockPos((int)newPosition.X, (int)newPosition.Y + 1, (int)newPosition.Z));
 
       if (block.BlockMaterial != EnumBlockMaterial.Air || blockAbove.BlockMaterial != EnumBlockMaterial.Air)
       {
