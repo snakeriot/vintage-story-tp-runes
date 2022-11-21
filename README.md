@@ -66,6 +66,7 @@ Metal wrapper for teleportation rune can be done using **smiting** mechanics:
 
 
 🔳🔳🔳🔳🔳
+
 🔳⬜⬜⬜🔳
 
 🔳⬜⬜⬜🔳
