@@ -217,7 +217,8 @@ namespace TeleporatationRunes
       if (byEntity.World is IClientWorldAccessor)
       {
         GuiDialogBlockEntityTextInput dlg = new GuiDialogBlockEntityTextInput(Lang.Get("tprunes:beacon_location_name"),
-                                        bec.Pos, "", bec.Api as ICoreClientAPI, 500);
+                                        bec.Pos, "", bec.Api as ICoreClientAPI,
+                                        new TextAreaConfig() { MaxWidth = 500, MaxHeight = 160 });
         dlg.OnTextChanged = (text) =>
         {
           bec.RunAnimation(BEBeacon.State.BIND_RUNE);
