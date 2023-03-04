@@ -5,8 +5,5 @@
 	"version": "1.0.8",
 	"description" : "Mod that adds beacon-based teleportation system into the game.",
 	"website": "https://github.com/snakeriot/vintage-story-tp-runes",
-	"authors": [ "dKosher" ],
-	"dependencies": {
-		"game": "1.18.0"
-	}
+	"authors": [ "dKosher" ]
 }
