@@ -49,8 +49,8 @@ namespace TeleportationRunes.src.Dkosher.ItemDescription
             if (teleportPosition != null && world != null && world.BlockAccessor != null)
             {
                 IBlockAccessor blockAccessor = world.BlockAccessor;
-                double xPosition = blockAccessor.MapSizeX / 2 - teleportPosition.X;
-                double zPosition = blockAccessor.MapSizeZ / 2 - teleportPosition.Z;
+                double xPosition = teleportPosition.X - blockAccessor.MapSizeX / 2;
+                double zPosition = teleportPosition.Z - blockAccessor.MapSizeZ / 2;
                 dsc.AppendLine("X:" + xPosition + " Y:" + teleportPosition.Y + " Z:" + zPosition);
             }
         }
