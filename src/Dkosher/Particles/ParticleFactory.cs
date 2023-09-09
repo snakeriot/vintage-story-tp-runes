@@ -1,9 +1,8 @@
+using System;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
 
-using System;
-
-namespace TeleporatationRunes
+namespace TeleportationRunes.src.Dkosher.Particles
 {
     public class ParticleFactory
     {

@@ -35,7 +35,7 @@
     }
   },
   "combustibleprops": {
-    "meltingPoint": 950,
+    "meltingPoint": 900,
     "meltingDuration": 30,
     "smeltedRatio": 1,
     "smeltingType": "bake",
