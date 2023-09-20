@@ -10,7 +10,7 @@ namespace TeleportationRunes.src.Dkosher.Teleportation
     {
         public static Vec3d GetRandomizePosition(Vec3d pos, EntityAgent byEntity)
         {
-            List<Vec3d> randomPositions = new List<Vec3d> { new Vec3d(-1, 0, 0), new Vec3d(1, 0, 0), new Vec3d(0, 0, 1), new Vec3d(0, 0, -1) };
+            List<Vec3d> randomPositions = new() { new Vec3d(-1, 0, 0), new Vec3d(1, 0, 0), new Vec3d(0, 0, 1), new Vec3d(0, 0, -1) };
             return GetRandomizedTeleportPosition(pos, byEntity, randomPositions);
         }
 
@@ -51,12 +51,17 @@ namespace TeleportationRunes.src.Dkosher.Teleportation
             Block block = byEntity.World.BlockAccessor.GetBlock(new BlockPos((int)newPosition.X, (int)newPosition.Y, (int)newPosition.Z));
             Block blockAbove = byEntity.World.BlockAccessor.GetBlock(new BlockPos((int)newPosition.X, (int)newPosition.Y + 1, (int)newPosition.Z));
 
-            if (block.BlockMaterial != EnumBlockMaterial.Air || blockAbove.BlockMaterial != EnumBlockMaterial.Air)
+            if (!MaterialAllowsTeleport(block) || !MaterialAllowsTeleport(blockAbove))
             {
                 vectors.RemoveAt(index);
                 return GetRandomizedTeleportPosition(pos, byEntity, vectors);
             }
             return newPosition;
+        }
+
+        private static bool MaterialAllowsTeleport(Block block)
+        {
+            return block.BlockMaterial == EnumBlockMaterial.Air || block.BlockMaterial == EnumBlockMaterial.Plant;
         }
     }
 }
