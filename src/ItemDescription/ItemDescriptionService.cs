@@ -43,16 +43,17 @@ namespace TeleportationRunes.src.Dkosher.ItemDescription
             if (name != null)
             {
                 dsc.AppendLine(Lang.Get("tprunes:rune_bound_to") + " " + name);
-            }
-            Vec3d teleportPosition = TeleportPositionService.GetPosition(inSlot);
+                Vec3d teleportPosition = TeleportPositionService.GetPosition(inSlot);
 
-            if (teleportPosition != null && world != null && world.BlockAccessor != null)
-            {
-                IBlockAccessor blockAccessor = world.BlockAccessor;
-                double xPosition = teleportPosition.X - blockAccessor.MapSizeX / 2;
-                double zPosition = teleportPosition.Z - blockAccessor.MapSizeZ / 2;
-                dsc.AppendLine("X:" + xPosition + " Y:" + teleportPosition.Y + " Z:" + zPosition);
+                if (teleportPosition != null && world != null && world.BlockAccessor != null)
+                {
+                    IBlockAccessor blockAccessor = world.BlockAccessor;
+                    double xPosition = teleportPosition.X - blockAccessor.MapSizeX / 2;
+                    double zPosition = teleportPosition.Z - blockAccessor.MapSizeZ / 2;
+                    dsc.AppendLine("X:" + xPosition + " Y:" + teleportPosition.Y + " Z:" + zPosition);
+                }
             }
+            
         }
 
         public static WorldInteraction[] GetRuneHelpText(ItemSlot inSlot)
