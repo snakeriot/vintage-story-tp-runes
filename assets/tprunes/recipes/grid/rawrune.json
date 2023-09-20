@@ -6,11 +6,11 @@
 		"N": { 
 			"type": "item", 
 			"code": "rune_stone_nest-*",
-            "name": "material"
+      "name": "material"
 		},
-		"C": { 
-			"type": "item", 
-			"code": "rune_stone_raw_core"
+		"C": {
+			"type": "item",
+			"code": "game:clay-*"
 		},
 		"G": { 
 			"type": "item", 

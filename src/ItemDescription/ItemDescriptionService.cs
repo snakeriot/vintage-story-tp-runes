@@ -53,7 +53,7 @@ namespace TeleportationRunes.src.Dkosher.ItemDescription
                     dsc.AppendLine("X:" + xPosition + " Y:" + teleportPosition.Y + " Z:" + zPosition);
                 }
             }
-            
+
         }
 
         public static WorldInteraction[] GetRuneHelpText(ItemSlot inSlot)
