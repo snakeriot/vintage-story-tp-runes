@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Vintagestory.API.Common;
 
 namespace TeleportationRunes.src.Dkosher.ClientPacket
@@ -14,18 +15,10 @@ namespace TeleportationRunes.src.Dkosher.ClientPacket
 
             if (data != null)
             {
-                using (MemoryStream ms = new MemoryStream(data))
-                {
-                    BinaryReader reader = new BinaryReader(ms);
-                    text = reader.ReadString();
-                    if (text == null) text = "";
-                }
-                if (text == null) text = "";
+                text = System.Text.Encoding.UTF8.GetString(data, 0, data.Length);
+                text ??= "";
             }
-            if (rune != null)
-            {
-                rune.Itemstack.Attributes.SetString("name", text);
-            }
+            rune?.Itemstack.Attributes.SetString("name", text);
         }
     }
 }
