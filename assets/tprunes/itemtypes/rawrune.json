@@ -39,7 +39,7 @@
       "handbook": {
         "extraSections": [
           {
-            "title": "handbooktitle_tp_runes_element",
+            "title": "handbooktitle-tp_runes_element",
             "text": "handbooktext-tp_runes-raw_rune"
           }
         ]
