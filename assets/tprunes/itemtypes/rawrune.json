@@ -34,17 +34,15 @@
       "base": "rune"
     }
   },
-  "attributesByType": {
-    "*": {
-      "handbook": {
-        "extraSections": [
-          {
-            "title": "handbooktitle-tp_runes_element",
-            "text": "handbooktext-tp_runes-raw_rune"
-          }
-        ]
-      }
-    }
+  "attributes": {
+   "handbook": {
+     "extraSections": [
+       {
+         "title": "handbooktitle-tp_runes_element",
+         "text": "handbooktext-tp_runes-raw_rune"
+       }
+     ]
+   }
   },
   "combustibleprops": {
     "meltingPoint": 700,
