@@ -9,6 +9,8 @@ namespace TeleportationRunes.src.Dkosher.Teleportation
 {
     public class TeleportService
     {
+        public const int DURABILITY_PER_BLOCK = 10;
+
         public static void Start(EntityAgent byEntity, ItemRune rune)
         {
 
@@ -36,7 +38,7 @@ namespace TeleportationRunes.src.Dkosher.Teleportation
             }
             byEntity.TeleportToDouble(tpPosition.X, tpPosition.Y, tpPosition.Z, () => rune.Teleported = true);
             BlockPos teleportTo = new BlockPos((int)pos.X, (int)pos.Y, (int)pos.Z);
-            slot.Itemstack.Collectible.DamageItem(byEntity.World, byEntity, slot, (int)rune.InitialPos.DistanceTo(teleportTo) / 10);
+            slot.Itemstack.Collectible.DamageItem(byEntity.World, byEntity, slot, (int)rune.InitialPos.DistanceTo(teleportTo) / DURABILITY_PER_BLOCK);
             slot.MarkDirty();
 
             byEntity.World.SpawnParticles(ParticleFactory.Get(ParticleType.TELEPORTED, byEntity));

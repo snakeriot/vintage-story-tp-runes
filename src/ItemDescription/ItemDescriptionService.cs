@@ -10,7 +10,6 @@ namespace TeleportationRunes.src.Dkosher.ItemDescription
 {
     public class ItemDescriptionService
     {
-
         /**
          * Get Description for the Beacon.
          * 
@@ -52,8 +51,9 @@ namespace TeleportationRunes.src.Dkosher.ItemDescription
                     double zPosition = teleportPosition.Z - blockAccessor.MapSizeZ / 2;
                     dsc.AppendLine("X:" + xPosition + " Y:" + teleportPosition.Y + " Z:" + zPosition);
                 }
+                int remainingDistance = inSlot.Itemstack.Collectible.GetRemainingDurability(inSlot.Itemstack) * TeleportService.DURABILITY_PER_BLOCK;
+                dsc.AppendLine(Lang.Get("tprunes:rune_remaining_distane") + " " + remainingDistance + " " + Lang.Get("tprunes:blocks"));
             }
-
         }
 
         public static WorldInteraction[] GetRuneHelpText(ItemSlot inSlot)
