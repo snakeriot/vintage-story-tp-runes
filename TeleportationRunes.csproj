@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <OutputPath>bin\$(Configuration)\Mods\teleporation-runes-1.1.0</OutputPath>
+    <OutputPath>bin\$(Configuration)\Mods\teleporation-runes-1.1.1</OutputPath>
   </PropertyGroup>
 	
 	<ItemGroup>
