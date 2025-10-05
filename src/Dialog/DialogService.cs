@@ -28,14 +28,14 @@ namespace TeleportationRunes.src.Dkosher.Dialog
                         BinaryWriter writer = new BinaryWriter(ms);
                         writer.Write(text);
                         byte[] data = ms.ToArray();
-                        (bec.Api as ICoreClientAPI).Network.SendBlockEntityPacket(bec.Pos.X, bec.Pos.Y, bec.Pos.Z, packetId, data);
+                        (bec.Api as ICoreClientAPI).Network.SendBlockEntityPacket(bec.Pos, packetId, data);
                     }
                     rune.SetName(text, slot);
                 };
                 dlg.OnCloseCancel = () =>
                 {
                     int packetId = (int)EnumSignPacketId.SaveText;
-                    (bec.Api as ICoreClientAPI).Network.SendBlockEntityPacket(bec.Pos.X, bec.Pos.Y, bec.Pos.Z, packetId, null);
+                    (bec.Api as ICoreClientAPI).Network.SendBlockEntityPacket(bec.Pos, packetId, null);
                     rune.SetName("", slot);
                 };
                 dlg.TryOpen();

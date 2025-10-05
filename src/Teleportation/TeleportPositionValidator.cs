@@ -1,6 +1,7 @@
 ﻿using TeleporatationRunes;
 using TeleportationRunes.src.Dkosher.Particles;
 using Vintagestory.API.Common;
+using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 
@@ -11,8 +12,8 @@ namespace TeleportationRunes.src.Dkosher.Teleportation
 
         public static void Validate(Vec3d pos, ItemSlot slot, EntityAgent byEntity, ItemRune rune, ICoreServerAPI sapi)
         {
-            int chunkX = (int)pos.X / byEntity.Api.World.BlockAccessor.ChunkSize;
-            int chunkZ = (int)pos.Z / byEntity.Api.World.BlockAccessor.ChunkSize;
+            int chunkX = (int)pos.X / GlobalConstants.ChunkSize;
+            int chunkZ = (int)pos.Z / GlobalConstants.ChunkSize;
 
             sapi.WorldManager.LoadChunkColumnPriority(chunkX, chunkZ, new ChunkLoadOptions()
             {
